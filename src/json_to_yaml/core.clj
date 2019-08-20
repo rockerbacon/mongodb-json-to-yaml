@@ -10,6 +10,7 @@
 (def mongo-collection-id "test_collection")
 (def mongo-connection-host "localhost")
 (def mongo-connection-port 27017)
+(def yaml-output-file "output/test.yml")
 
 (defn -main
 	"Convert Mongo Database JSON to a YAML file"
@@ -42,6 +43,9 @@
 
 		(println "DEBUG: YAML:")
 		(println (yaml.core/generate-string mongo-document))
+
+		(print (str "DEBUG: writing YAML to file \"" yaml-output-file "\""))
+		(spit yaml-output-file (yaml.core/generate-string mongo-document))
 
 		(monger.core/disconnect mongo-connection)
 	)
