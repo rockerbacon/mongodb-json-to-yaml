@@ -44,7 +44,7 @@
 		(println "DEBUG: YAML:")
 		(println (yaml.core/generate-string mongo-document))
 
-		(print (str "DEBUG: writing YAML to file \"" yaml-output-file "\""))
+		(print (str "DEBUG: writing YAML to file \"" yaml-output-file "\"\n"))
 		(spit yaml-output-file (yaml.core/generate-string mongo-document))
 
 		(monger.core/disconnect mongo-connection)
