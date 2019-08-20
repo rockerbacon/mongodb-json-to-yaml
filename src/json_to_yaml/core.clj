@@ -2,6 +2,7 @@
 	(:gen-class)
 	(:require [monger.core])
 	(:require [monger.collection])
+	(:require [yaml.core])
 	(:import org.bson.types.ObjectId)
  )
 
@@ -38,6 +39,9 @@
 
 		(println "DEBUG: Search result:")
 		(println mongo-document)
+
+		(println "DEBUG: YAML:")
+		(println (yaml.core/generate-string mongo-document))
 
 		(monger.core/disconnect mongo-connection)
 	)
